@@ -1,0 +1,15 @@
+import io.reactivex.Observable
+import retrofit2.http.GET 
+import retrofit2.http.Path
+
+interface API {
+
+	@{{{request.method}}}("{{{trimmedUrl}}}")
+	fun {{{method}}}({{#headers.hasHeaders}}{{#combine}}
+	@Path("{{#headers.list}}
+	{{{name}}} : {{/headers.list}} " {{/combine}})){{/headers.hasHeaders}}
+	{{#queryParams}}	{{name}}
+	{{/queryParams}})
+
+
+}
